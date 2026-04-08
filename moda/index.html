@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MODA — Geyim Mağazası</title>
+
+  <!-- Ortaq stillər -->
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <style>
+    /* Yalnız bu səhifəyə aid stillər */
+    main {
+      padding: var(--page-y) var(--page-x);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header (components.js ilə dinamik render olur) -->
+<header></header>
+
+<!-- Elan banneri -->
+<div class="hero-strip">
+  <p>🚚 <span>50 AZN</span> üzərindəki sifarişlərə pulsuz çatdırılma &nbsp;|&nbsp; Yeni kolleksiya gəldi ✨</p>
+</div>
+
+<!-- Əsas kontent -->
+<main>
+  <div class="section-header">
+    <h1 class="section-title">Yeni Kolleksiya</h1>
+    <span class="section-count" id="productCount"></span>
+  </div>
+  <div class="product-grid" id="productGrid"></div>
+</main>
+
+<!-- Footer (components.js ilə dinamik render olur) -->
+<footer></footer>
+
+<!-- Auth Modal (giriş/qeydiyyat popup) -->
+<div class="overlay" id="authModal"></div>
+
+<!-- Cart Modal (səbət popup) -->
+<div class="overlay" id="cartModal"></div>
+
+<!-- JS faylları (sıra vacibdir!) -->
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/products.js"></script>
+<script src="js/components.js"></script>
+
+<script>
+  // Ana səhifəyə aid JS
+  document.addEventListener('DOMContentLoaded', () => {
+    renderProducts(PRODUCTS);
+    document.getElementById('productCount').textContent = `${PRODUCTS.length} məhsul`;
+  });
+</script>
+</body>
+</html>
